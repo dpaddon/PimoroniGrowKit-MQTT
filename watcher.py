@@ -31,7 +31,7 @@ def auth():
     return load_config().get('auth')
 
 # Give time for the network to be initialised before starting up
-time.sleep(120)
+time.sleep(config.get("startup_wait", 0)
 
 config = load_config()
 broker = broker()

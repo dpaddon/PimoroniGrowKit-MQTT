@@ -7,4 +7,5 @@ auth:
     username: USERNAME    # MQTT username
     password: PASSWORD    # MQTT password
 
+startup_wait: 60
 read_rate: 120
