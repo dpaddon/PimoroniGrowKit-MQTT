@@ -19,7 +19,7 @@ def on_message(client, userdata, msg):
 def load_config():
 
     pathlib.Path(__file__).parent.absolute()
-    with open(os.path.join(pathlib.Path(__file__).parent.absolute(), 'config.yaml')) as f:
+    with open(os.path.join(pathlib.Path(__file__).parent.absolute(), 'local_config.yaml')) as f:
         return yaml.load(f)
 
 
@@ -30,6 +30,8 @@ def broker():
 def auth():
     return load_config().get('auth')
 
+# Give time for the network to be initialised before starting up
+time.sleep(120)
 
 config = load_config()
 broker = broker()
@@ -60,6 +62,6 @@ while True:
 
     print(json.dumps(payload))
 
-    time.sleep(30)
+    time.sleep(config.get("read_rate", 30))
 
 client.loop_forever()

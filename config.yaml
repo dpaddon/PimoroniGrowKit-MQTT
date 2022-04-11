@@ -6,3 +6,5 @@ broker:
 auth:
     username: USERNAME    # MQTT username
     password: PASSWORD    # MQTT password
+
+read_rate: 120
