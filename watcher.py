@@ -36,7 +36,8 @@ def generate_payload(light, sensors):
     for i in range(0, len(sensors)):
         payload["sensor_{}".format(i)] = {
             "moisture": sensors[i].moisture,
-            "saturation": sensors[i].saturation
+            "saturation": sensors[i].saturation,
+            "moisture_inv": 1/max(1, sensors[i].moisture),
         }
     return payload
 
